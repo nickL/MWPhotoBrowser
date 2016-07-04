@@ -626,6 +626,9 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
         while (_pagingScrollView.subviews.count) {
             [[_pagingScrollView.subviews lastObject] removeFromSuperview];
         }
+        // Infinite Scrolling addon:
+        // reload the grid controller when parent reloadData called.
+        [_gridController.collectionView reloadData];
         [self performLayout];
         [self.view setNeedsLayout];
     }
