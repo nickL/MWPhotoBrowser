@@ -14,34 +14,34 @@
 
 // Declare private methods of browser
 @interface MWPhotoBrowser () {
-    
+
 	// Data
     NSUInteger _photoCount;
     NSMutableArray *_photos;
     NSMutableArray *_thumbPhotos;
 	NSArray *_fixedPhotosArray; // Provided via init
-	
+
 	// Views
 	UIScrollView *_pagingScrollView;
-	
+
 	// Paging & layout
 	NSMutableSet *_visiblePages, *_recycledPages;
 	NSUInteger _currentPageIndex;
     NSUInteger _previousPageIndex;
     CGRect _previousLayoutBounds;
 	NSUInteger _pageIndexBeforeRotation;
-	
+
 	// Navigation & controls
 	UIToolbar *_toolbar;
 	NSTimer *_controlVisibilityTimer;
 	UIBarButtonItem *_previousButton, *_nextButton, *_actionButton, *_doneButton;
     MBProgressHUD *_progressHUD;
-    
+
     // Grid
     MWGridViewController *_gridController;
     UIBarButtonItem *_gridPreviousLeftNavItem;
     UIBarButtonItem *_gridPreviousRightNavItem;
-    
+
     // Appearance
     BOOL _previousNavBarHidden;
     BOOL _previousNavBarTranslucent;
@@ -52,12 +52,12 @@
     UIBarButtonItem *_previousViewControllerBackButton;
     UIImage *_previousNavigationBarBackgroundImageDefault;
     UIImage *_previousNavigationBarBackgroundImageLandscapePhone;
-    
+
     // Video
     MPMoviePlayerViewController *_currentVideoPlayerViewController;
     NSUInteger _currentVideoIndex;
     UIActivityIndicatorView *_currentVideoLoadingIndicator;
-    
+
     // Misc
     BOOL _hasBelongedToViewController;
     BOOL _isVCBasedStatusBarAppearance;
@@ -71,7 +71,7 @@
     BOOL _skipNextPagingScrollViewPositioning;
     BOOL _viewHasAppearedInitially;
     CGPoint _currentGridContentOffset;
-    
+
 }
 
 // Properties
@@ -114,6 +114,11 @@
 // Grid
 - (void)showGrid:(BOOL)animated;
 - (void)hideGrid;
+
+// Infinite scroll addon:
+// Define gridViewScroll method to be passed to delegate
+- (void)gridViewDidScroll:(UIScrollView *)scrollView;
+
 
 // Controls
 - (void)cancelControlHiding;

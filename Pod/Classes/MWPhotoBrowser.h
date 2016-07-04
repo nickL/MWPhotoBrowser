@@ -36,6 +36,12 @@
 - (void)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index selectedChanged:(BOOL)selected;
 - (void)photoBrowserDidFinishModalPresentation:(MWPhotoBrowser *)photoBrowser;
 
+// Infinite Scrolling addon:
+// Create a delegate method to respond to the scroll event passed from the gridViewController
+// (See MWGridViewController#scrollViewDidScroll)
+//
+- (void)photoBrowser:(MWPhotoBrowser *)photoBrowser gridViewDidScroll:(UIScrollView *)scrollView;
+
 @end
 
 @interface MWPhotoBrowser : UIViewController <UIScrollViewDelegate, UICollectionViewDelegate, UIActionSheetDelegate>

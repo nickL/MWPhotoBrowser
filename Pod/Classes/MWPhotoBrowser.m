@@ -1393,6 +1393,13 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     }];
 
 }
+// Infinite Scrolling addon:
+//
+- (void)gridViewDidScroll:(UIScrollView *)scrollView {
+  if ([_delegate respondsToSelector:@selector(photoBrowser:gridViewDidScroll:)]) {
+      [_delegate photoBrowser:self gridViewDidScroll:scrollView];
+  }
+}
 
 #pragma mark - Control Hiding / Showing
 
